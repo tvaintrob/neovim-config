@@ -206,6 +206,7 @@ _G.packer_plugins = {
     url = "https://github.com/rcarriga/nvim-dap-ui"
   },
   ["nvim-lsp-installer"] = {
+    config = { "        local ok, module = pcall(require, \"nv_lsp.lsp_installer\")\n        if ok and type(module) == 'table' then\n            module.setup()\n        end\n      " },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -389,14 +390,14 @@ end
 time([[Config for neo-tree.nvim]], true)
 require("nv_editor.neotree")
 time([[Config for neo-tree.nvim]], false)
--- Config for: nvim-colorizer.lua
-time([[Config for nvim-colorizer.lua]], true)
-require('colorizer').setup()
-time([[Config for nvim-colorizer.lua]], false)
 -- Config for: nvim-cmp
 time([[Config for nvim-cmp]], true)
 require("nv_lsp.nvim_cmp")
 time([[Config for nvim-cmp]], false)
+-- Config for: nvim-colorizer.lua
+time([[Config for nvim-colorizer.lua]], true)
+require('colorizer').setup()
+time([[Config for nvim-colorizer.lua]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
@@ -407,8 +408,8 @@ vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au BufRead * ++once lua require("packer.load")({'dressing.nvim', 'nvim-web-devicons', 'editorconfig-vim', 'schemastore.nvim', 'git-blame.nvim', 'stabilize.nvim', 'lazygit.nvim', 'lsp-colors.nvim', 'telescope.nvim', 'toggleterm.nvim', 'lua-dev.nvim', 'trouble.nvim', 'null-ls.nvim', 'vim-surround', 'vim-terraform', 'nvim-ts-context-commentstring', 'vim-sensible', 'vim-commentary', 'nvim-treesitter', 'nvim-lsp-installer', 'vim-repeat', 'nvim-lspconfig', 'nvim-notify'}, { event = "BufRead *" }, _G.packer_plugins)]]
-vim.cmd [[au BufNew * ++once lua require("packer.load")({'dressing.nvim', 'nvim-web-devicons', 'editorconfig-vim', 'schemastore.nvim', 'git-blame.nvim', 'stabilize.nvim', 'lazygit.nvim', 'lsp-colors.nvim', 'telescope.nvim', 'toggleterm.nvim', 'lua-dev.nvim', 'trouble.nvim', 'null-ls.nvim', 'vim-surround', 'vim-terraform', 'nvim-ts-context-commentstring', 'vim-sensible', 'vim-commentary', 'nvim-treesitter', 'nvim-lsp-installer', 'vim-repeat', 'nvim-lspconfig', 'nvim-notify'}, { event = "BufNew *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNew * ++once lua require("packer.load")({'editorconfig-vim', 'git-blame.nvim', 'schemastore.nvim', 'lazygit.nvim', 'stabilize.nvim', 'nvim-web-devicons', 'lsp-colors.nvim', 'telescope.nvim', 'lua-dev.nvim', 'toggleterm.nvim', 'trouble.nvim', 'vim-commentary', 'vim-repeat', 'vim-sensible', 'null-ls.nvim', 'vim-surround', 'vim-terraform', 'nvim-lsp-installer', 'nvim-lspconfig', 'nvim-notify', 'nvim-treesitter', 'nvim-ts-context-commentstring', 'dressing.nvim'}, { event = "BufNew *" }, _G.packer_plugins)]]
+vim.cmd [[au BufRead * ++once lua require("packer.load")({'editorconfig-vim', 'git-blame.nvim', 'schemastore.nvim', 'lazygit.nvim', 'stabilize.nvim', 'nvim-web-devicons', 'lsp-colors.nvim', 'telescope.nvim', 'lua-dev.nvim', 'toggleterm.nvim', 'trouble.nvim', 'vim-commentary', 'vim-repeat', 'vim-sensible', 'null-ls.nvim', 'vim-surround', 'vim-terraform', 'nvim-lsp-installer', 'nvim-lspconfig', 'nvim-notify', 'nvim-treesitter', 'nvim-ts-context-commentstring', 'dressing.nvim'}, { event = "BufRead *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
 if should_profile then save_profiles() end

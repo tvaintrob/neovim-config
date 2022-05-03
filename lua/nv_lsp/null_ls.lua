@@ -9,14 +9,12 @@ null_ls.setup({
     null_ls.builtins.diagnostics.luacheck,
     null_ls.builtins.diagnostics.shellcheck,
 
-		-- null_ls.builtins.formatting.shfmt,
-		null_ls.builtins.formatting.shellharden,
+		null_ls.builtins.formatting.shfmt,
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.eslint_d,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.goimports,
 		null_ls.builtins.formatting.black.with({ args = { "-" } }),
-		null_ls.builtins.formatting.isort.with({ extra_args = { "--profile", "black" } }),
 	},
 })
 

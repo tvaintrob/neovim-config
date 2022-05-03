@@ -71,7 +71,7 @@ return require("packer").startup({
 		use(on_buffer({ "nvim-treesitter/nvim-treesitter", run = ":TSUpdate", module_name = "nv_visual.treesitter" }))
 
 		-- LSP support
-		use(on_buffer({ "williamboman/nvim-lsp-installer" }))
+		use(on_buffer({ "williamboman/nvim-lsp-installer", module_name = "nv_lsp.lsp_installer" }))
 		use(on_buffer({ "folke/trouble.nvim" }))
 		use(on_buffer({ "b0o/schemastore.nvim" }))
 		use(on_buffer({ "folke/lsp-colors.nvim" }))
@@ -93,11 +93,11 @@ return require("packer").startup({
 		})
 
 		use(on_buffer({ "neovim/nvim-lspconfig", module_name = "nv_lsp.lsp_config" }))
-    use(on_buffer({"jose-elias-alvarez/null-ls.nvim", module_name = "nv_lsp.null_ls" }))
+		use(on_buffer({ "jose-elias-alvarez/null-ls.nvim", module_name = "nv_lsp.null_ls" }))
 
-    use({ "mfussenegger/nvim-dap" })
-    use({ "rcarriga/nvim-dap-ui" })
-    use({ "mfussenegger/nvim-dap-python" })
+		use({ "mfussenegger/nvim-dap" })
+		use({ "rcarriga/nvim-dap-ui" })
+		use({ "mfussenegger/nvim-dap-python" })
 
 		if packer_bootstrap then
 			require("packer").sync()
